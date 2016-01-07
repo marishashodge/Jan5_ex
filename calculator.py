@@ -19,6 +19,8 @@ while calculator_on:
     sign = tokens.pop(0)
     
     for x in tokens:
+        if x.startswith('-') and x[1:].isdigit():
+            continue
         if not x.isdigit():
             print "You can only enter numbers between the spaces after the operator."
             sys.exit()
