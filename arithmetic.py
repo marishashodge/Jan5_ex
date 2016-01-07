@@ -1,14 +1,28 @@
-def add(num1, num2):
-    return num1 + num2
 
-def subtract(num1, num2):
-    return num1 - num2
+def add(num):
+    total = 0
+    for k, v in num.items():
+        total += int(v)
+    return total
 
-def multiply(num1, num2):
-    return num1 * num2
 
-def divide(num1, num2):
-    return float(num1 / num2)
+def subtract(num):
+    total = int(num["num1"]) * 2
+    for k, v in num.items():
+        total -= int(v)
+    return total
+
+def multiply(num):
+    total = int(num["num1"])
+    for k, v in num.items():
+        total *= int(v)
+    return total
+
+def divide(num):
+    total = int(num["num1"])
+    for k, v in num.items():
+        total /= int(v)
+    return total
 
 def square(num1):
     return num1 ** 2
