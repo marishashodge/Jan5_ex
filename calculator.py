@@ -8,42 +8,32 @@ calculator program yourself in this file.
 from arithmetic import *
 
 # Your code goes here
-def assign_variables(tokens):
-    variables = {}
-    y = 1
-
-    while y < len(tokens):
-        variables["num"+str(y)] = tokens[y]
-        y += 1
-
-    return variables
 
 calculator_on = True
 
 while calculator_on:
     userinput = raw_input("Please use the calculator:\n")
     tokens = userinput.split(" ")
+    sign = tokens.pop(0)
 
-    if userinput == "q":
+    if sign == "q":
         calculator_on = False
 
-    variables = assign_variables(tokens)
-
-    sign = tokens[0]
-
     if sign == "+":
-        print(add(variables))
+        print(add(tokens))
     elif sign == "-":
-        print(subtract(num1, num2))
+        print(subtract(tokens))
     elif sign == "*":
-        print(multiply(num1, num2))
+        print(multiply(tokens))
     elif sign == "/":
-        print(divide(num1, num2))
+        print(divide(tokens))
     elif sign == "square":
-        print(square(num1))
+        print(square(tokens))
     elif sign == "cube":
-        print(cube(num1))
+        print(cube(tokens))
     elif sign == "pow":
-        print(power(num1, num2))
+        print(power(tokens))
     elif sign == "mod":
-        print(mod(num1, num2))
+        print(mod(tokens))
+    else:
+        print("That is not a valid input.")
