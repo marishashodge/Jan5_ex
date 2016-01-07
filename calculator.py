@@ -7,6 +7,8 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
+import sys
+
 # Your code goes here
 
 calculator_on = True
@@ -15,6 +17,11 @@ while calculator_on:
     userinput = raw_input("Please use the calculator:\n")
     tokens = userinput.split(" ")
     sign = tokens.pop(0)
+    
+    for x in tokens:
+        if not x.isdigit():
+            print "You can only enter numbers between the spaces after the operator."
+            sys.exit()
 
     if sign == "q":
         calculator_on = False
